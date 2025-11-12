@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        {% if error %}
+            <h2 style="color: red;">Error: {{ error }}</h2>
+        {% else %}
+            <h1>🏠 Predicted Total Price</h1>
+            <p><strong>Site Size (sq ft):</strong> {{ site_size }}</p>
+            <p><strong>City Range (km):</strong> {{ city_range }}</p>
+            <p><strong>Road Distance (m):</strong> {{ road_distance }}</p>
+            <h2 class="price">💰 ₹{{ predicted_price }}</h2>
+        {% endif %}
+        <a href="{% url 'index' %}" class="back-btn">Go Back</a>
+    </div>
+</body>
+</html>
